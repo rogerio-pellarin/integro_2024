@@ -32,7 +32,7 @@ if (!function_exists(('checkWithLoop'))) {
     function checkPalindromeWithLoop(string $input): bool
     {
         $result = true;
-        //total sentence length
+        //total phrase length
         $inputLength = strlen($input);
 
         //Half is traversed as long as the characters in each 
