@@ -1,0 +1,14 @@
+{
+    "name": "integro",
+    "version": "1.0.0",
+    "description": "- Create a FORK of this project\r - Create a BRANCH from your first name\r - Solve the tests provided (see the instructions bellow)\r - COMMIT your changes and initiate a PULL REQUEST for the MASTER branch",
+    "keywords": [],
+    "author": {
+        "name": "Pablo Madariaga",
+        "email": "juanpablomadariagacardona@gmail.com"
+    },
+    "dependencies": {
+        "axios": "^1.6.7",
+        "react": "^18.2.0"
+    }
+}
