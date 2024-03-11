@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+        
+        const { useState } = React;
+
+        function MyApp() {
+        const [inputText, setInputText] = useState('');
+        const [resultado, setResultado] = useState('');
+
+        const handleInputChange = (event) => {
+            setInputText(event.target.value);
+        };
+
+        // const api = "https://dummy.restapiexample.com/api/v1/employees";
+        const api = '/api/validar_palindromo';
+
+        const validarPalindromo = () => {
+            axios.get(api, { texto: inputText })
+            .then(response => {
+                // console.log(response)
+                // !NOTE: Aqui se validaria el resultado de la respuesta del servicio web, se uso uno de prueba para testear el correcto funcionamiento del axios
+                setResultado(response.data ? "Es Palindromo" : "No es palinfromo");
+            })
+            .catch(error => {
+                console.error('Error al realizar la solicitud:', error);
+            });
+        };
+
+            return (
+                <div>
+                    <h2>Validador de Palíndromos</h2>
+                    <input type="text" value={inputText} onChange={handleInputChange} />
+                    <button onClick={validarPalindromo}>Validar</button>
+                    {resultado && <p>{resultado}</p>}
+                </div>
+            );
+        }
+
+      const container = document.getElementById('root');
+      const root = ReactDOM.createRoot(container);
+      root.render(<MyApp />);
+
+    </script>
+  </body>
+</html>
