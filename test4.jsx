@@ -14,7 +14,7 @@ export default class Palindrome extends React.Component {
     const api = '/api/validar_palindromo';
 
     const validarPalindromo = () => {
-        axios.get(api, { texto: inputText })
+        axios.post(api, { texto: inputText })
         .then(response => {
             // console.log(response)
             // !NOTE: Aqui se validaria el resultado de la respuesta del servicio web, se uso uno de prueba para testear el correcto funcionamiento del axios
