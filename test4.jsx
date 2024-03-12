@@ -24,7 +24,7 @@ export default class Palindrome extends React.Component {
                 if (response.data.is_palindrome) {
                     this.setState({ isPalindrome: true, error: null });
                 } else {
-                    this.setState({ isPalindrome: false, error: 'Not a palindrome' });
+                    this.setState({ isPalindrome: false, error: 'No es palindrome' });
                 }
             })
             .catch(error => {
@@ -44,7 +44,7 @@ export default class Palindrome extends React.Component {
                     </label>
                     <input type="submit" value="Validar Palabra" />
                 </form>
-                {this.state.isPalindrome && <p>la Palabra es palindroma</p>}
+                {this.state.isPalindrome && <p>la Palabra es palindrome</p>}
                 {this.state.error && <p style={{ color: 'red' }}>{this.state.error}</p>}
             </>
         );
