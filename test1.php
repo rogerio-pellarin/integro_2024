@@ -9,7 +9,7 @@ function is_palindrome($input) {
     
         $characters = [',', ' ', '\''];
     
-        // becoming sentence to lowercase and removing it accents
+        // becoming sentence to lowercase and removing accents
         $input_formated = strtolower(iconv('UTF-8', 'ASCII//TRANSLIT', $input));
     
         // Removing characters that are not needed for validation like palindrome
