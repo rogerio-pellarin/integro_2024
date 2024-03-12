@@ -1,6 +1,11 @@
 var input = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
 
 function apples(input) {
+  if (typeof input !== "object") throw new TypeError("Input must be an object");
+  if (input.length === 0) throw new Error("Input does not contain any element");
+  if (typeof input === undefined || typeof input === null)
+    throw new Error("Input is required for arranging the apples");
+
   let result = [];
   let boxes_quantity = 4;
   let packages_quantity = 2;
