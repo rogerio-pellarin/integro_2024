@@ -53,3 +53,36 @@ Sorted by: customer.name
 
 ### TEST 4 - REACTJS
 Considering that the example from test 1 (palindrome) represents a REST API, create a Reactjs script in the "test4.js" file. This script should include one text input field and a button. The objective is to validate whether the entered text is a palindrome or not by making a POST call via AJAX, preferably utilizing AXIOS.
+
+
+For this point(TEST 4) I create a new react project, in the root folder I create a PHP folder and add a file called server.php with the following code
+To start the php server, go to PHP folder and run: php -S localhost:8000
+
+Code modify to test with test4.jsx
+
+*********************************************************************************************************
+<?php
+  header('Access-Control-Allow-Origin: http://localhost:3000');
+  $input = $_POST['frase'];
+
+  function is_palindrome($input) {
+      //solve this method that says if the sentence is palindrome or not
+  
+      // separate phrase accent on a separate character
+      $nonAccentsPhrase = iconv("UTF-8", 'ASCII//TRANSLIT', $input);
+  
+      // remove all non alpha numeric characters and convert the phrase to lowercase
+      $lowerCasePhrase = preg_replace("/[^A-Za-z0-9]/", "", strtolower($nonAccentsPhrase));
+      
+      // Use strrev to get the reverse string and compare if they are equal and check if length is > 0
+      if ($lowerCasePhrase == strrev($lowerCasePhrase) && strlen($lowerCasePhrase) != 0) {
+          return true; // is a palindrome
+      }
+  
+      // is not a palindrome or the phrase only contains non-alphanumeric symbols
+      return false; // is not a palindrome
+  }
+
+var_dump(is_palindrome($input));
+
+*********************************************************************************************************
